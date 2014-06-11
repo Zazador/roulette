@@ -58,7 +58,7 @@ public class LoginRegisterActivity extends Activity{
             ParseUser currentUser = ParseUser.getCurrentUser();
             if (currentUser != null) {
                 // Send logged in users to Welcome.class
-                Intent intent = new Intent(LoginRegisterActivity.this, Welcome.class);
+                Intent intent = new Intent(LoginRegisterActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             } else {
