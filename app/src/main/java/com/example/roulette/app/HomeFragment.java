@@ -2,6 +2,7 @@ package com.example.roulette.app;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -72,6 +74,10 @@ public class HomeFragment extends Fragment {
                     public void done(ParseUser user, ParseException e) {
                         if (user != null) {
                             // If user exists and authenticated, send user to Find Restaurant Fragment
+
+                            // Hides keyboard before switching fragments
+                            final InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                            imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
 
                             // Create new fragment and transaction
                             FindRestaurantFragment newFragment = new FindRestaurantFragment();
