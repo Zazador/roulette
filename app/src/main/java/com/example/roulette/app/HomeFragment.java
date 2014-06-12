@@ -1,6 +1,7 @@
 package com.example.roulette.app;
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,7 +71,20 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void done(ParseUser user, ParseException e) {
                         if (user != null) {
-                            // If user exists and authenticated, send user somewhere?
+                            // If user exists and authenticated, send user to Find Restaurant Fragment
+
+                            // Create new fragment and transaction
+                            FindRestaurantFragment newFragment = new FindRestaurantFragment();
+                            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                            // Replace whatever is in the fragment_container view with this fragment,
+                            // and add the transaction to the back stack
+                            transaction.replace(R.id.frame_container, newFragment);
+                            transaction.addToBackStack(null);
+
+                            // Commit the transaction
+                            transaction.commit();
+
                             Toast.makeText(getActivity(), "Successfully logged in!", Toast.LENGTH_LONG).show();
                         } else {
                             // If user does not exist

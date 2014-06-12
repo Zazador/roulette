@@ -67,7 +67,7 @@ public class MainActivity extends Activity {
         // adding nav drawer items to array
         // Home
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
-        // Find people
+        // Find restaurants
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
         // Photos
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
@@ -189,6 +189,8 @@ public class MainActivity extends Activity {
             case 0:
                 fragment = new HomeFragment();
                 break;
+            case 1:
+                fragment = new FindRestaurantFragment();
             default:
                 break;
         }
