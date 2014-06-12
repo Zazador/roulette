@@ -106,7 +106,7 @@ public class MainActivity extends Activity {
 
         if (savedInstanceState == null) {
             // on first time display view for first nav item
-            invalidateOptionsMenu();
+            displayView(0);
         }
     }
 
