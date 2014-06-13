@@ -11,22 +11,22 @@
         android:id="@+id/username"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        style="@style/AudioFileInfoOverlayText"
         android:layout_below="@+id/txtusername"
         android:inputType="text"
         android:hint="@string/Username"
-        android:textColorHint="@color/black"
-        android:background="#CCFFFFFF"/>
+        android:textColorHint="@color/white"/>
 
     <EditText
         android:id="@+id/password"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        style="@style/AudioFileInfoOverlayText"
         android:layout_below="@+id/txtpassword"
         android:layout_marginTop="50dp"
         android:inputType="textPassword"
         android:hint="@string/Password"
-        android:textColorHint="@color/black"
-        android:background="#CCFFFFFF"/>
+        android:textColorHint="@color/white"/>
 
     <Button
         android:id="@+id/login"
