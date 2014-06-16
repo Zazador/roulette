@@ -28,8 +28,8 @@ import com.parse.SignUpCallback;
 /**
  * Created by zach on 6/11/14.
  */
-public class HomeFragment extends Fragment {
-        public HomeFragment() {}
+public class SearchFragment extends Fragment {
+        public SearchFragment() {}
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,

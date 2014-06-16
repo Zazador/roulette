@@ -7,7 +7,6 @@ import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -18,11 +17,8 @@ import android.widget.ListView;
 
 import com.example.com.example.slidingmenu.adapter.NavDrawerListAdapter;
 import com.example.slidingmenu.model.NavDrawerItem;
-import com.parse.Parse;
-import com.parse.ParseAnalytics;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class MainActivity extends Activity {
@@ -187,7 +183,7 @@ public class MainActivity extends Activity {
         Fragment fragment = null;
         switch (position) {
             case 0:
-                fragment = new HomeFragment();
+                fragment = new SearchFragment();
                 break;
             case 1:
                 fragment = new FindRestaurantFragment();
