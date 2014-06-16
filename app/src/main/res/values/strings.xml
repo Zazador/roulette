@@ -21,7 +21,7 @@
     <string-array name="nav_drawer_items">
         <item >Home</item>
         <item >Find Restaurants</item>
-        <item >Photos</item>
+        <item >Favorites</item>
         <item >Communities</item>
         <item >Pages</item>
         <item > What\'s Hot</item>
