@@ -191,6 +191,9 @@ public class MainActivity extends Activity {
                 break;
             case 1:
                 fragment = new FindRestaurantFragment();
+                break;
+            case 2:
+                fragment = new FavoriteFragment();
             default:
                 break;
         }
