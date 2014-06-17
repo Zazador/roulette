@@ -28,7 +28,7 @@ public class SearchFragment extends Fragment {
     }
 
     private WeakReference<MyAsyncTask> asyncTaskWeakRef;
-    EditText foodTypeText;
+    public EditText foodTypeText;
     EditText foodLocationText;
     Button searchButton;
 
@@ -37,7 +37,6 @@ public class SearchFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-
     }
 
     @Override
@@ -62,7 +61,7 @@ public class SearchFragment extends Fragment {
         task.execute();
     }
 
-    private static class MyAsyncTask extends AsyncTask<String, Void, String> {
+    private class MyAsyncTask extends AsyncTask<String, Void, String> {
         private WeakReference<SearchFragment> fragmentWeakReference;
         private Exception exception;
 
@@ -73,6 +72,8 @@ public class SearchFragment extends Fragment {
         @Override
         protected String doInBackground(String... terms) {
             try {
+                String foodType = foodTypeText.getText().toString();
+                String loc = foodLocationText.getText().toString();
                 // Execute a signed call to the Yelp service
                 OAuthService service = new ServiceBuilder()
                         .provider(YelpV2API.class)
@@ -84,9 +85,9 @@ public class SearchFragment extends Fragment {
                 // We want to perform a search.
                 OAuthRequest request = new OAuthRequest(Verb.GET, "http://api.yelp.com/v2/search");
                 // Based on a GPS coordinate latitude/longitude
-                request.addQuerystringParameter("ll", " 30.364715, -87.16164326");
+                request.addQuerystringParameter("location", loc);
                 // Looking for any restaurants
-                request.addQuerystringParameter("category_filter", "restaurants");
+                request.addQuerystringParameter("term", foodType);
                 service.signRequest(accessToken, request);
                 Response response = request.send();
                 String rawData = response.getBody();
