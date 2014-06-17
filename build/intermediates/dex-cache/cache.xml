@@ -14,17 +14,17 @@
         revision="19.1.0"
         sha1="39a9e4b49ded46aa1b67d492fe287c4cebcd815c"/>
     <item
-        dex="/Users/zach/AndroidStudioProjects/roulette/app/build/intermediates/pre-dexed/debug/Parse-1.5.0-faa45aec958b45bc9969dd115b089da094949172.jar"
-        jar="/Users/zach/AndroidStudioProjects/roulette/app/libs/Parse-1.5.0.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="8a675f7e3312d8b28188ec653bbea6d435aaa7d1"/>
-    <item
         dex="/Users/zach/AndroidStudioProjects/roulette/app/build/intermediates/pre-dexed/debug/classes-52589ec09b9e7e1d32bd9574607bd8f38a70ac9a.jar"
         jar="/Users/zach/AndroidStudioProjects/roulette/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/classes.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28"/>
+    <item
+        dex="/Users/zach/AndroidStudioProjects/roulette/app/build/intermediates/pre-dexed/debug/Parse-1.5.0-faa45aec958b45bc9969dd115b089da094949172.jar"
+        jar="/Users/zach/AndroidStudioProjects/roulette/app/libs/Parse-1.5.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="8a675f7e3312d8b28188ec653bbea6d435aaa7d1"/>
     <item
         dex="/Users/zach/AndroidStudioProjects/roulette/app/build/intermediates/pre-dexed/debug/gson-2.2.4-javadoc-8270d68bbc2d670554a8d5c333c863c495640768.jar"
         jar="/Users/zach/AndroidStudioProjects/roulette/app/libs/gson-2.2.4-javadoc.jar"

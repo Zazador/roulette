@@ -12,10 +12,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.widget.Toast;
+
 import com.parse.ParseAnonymousUtils;
 import com.parse.ParseUser;
 
-public class LoginRegisterActivity extends Activity{
+public class LoginRegisterActivity extends Activity {
     SharedPreferences mPrefs;
     final String welcomeScreenShownPref = "welcomeScreenShown";
 

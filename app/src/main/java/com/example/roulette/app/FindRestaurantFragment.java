@@ -9,8 +9,9 @@ import android.view.ViewGroup;
 /**
  * Created by zach on 6/12/14.
  */
-public class FindRestaurantFragment extends Fragment{
-    public FindRestaurantFragment(){}
+public class FindRestaurantFragment extends Fragment {
+    public FindRestaurantFragment() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

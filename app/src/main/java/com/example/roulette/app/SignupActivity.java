@@ -18,7 +18,7 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
-public class SignupActivity extends Activity{
+public class SignupActivity extends Activity {
     // Declare Variables
     Button loginbutton;
     Button signup;
@@ -27,7 +27,9 @@ public class SignupActivity extends Activity{
     EditText password;
     EditText username;
 
-    /** Called when the activity is first created. */
+    /**
+     * Called when the activity is first created.
+     */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Get the view from main.xml
@@ -69,7 +71,8 @@ public class SignupActivity extends Activity{
                                             Toast.LENGTH_LONG).show();
                                 }
                             }
-                        });
+                        }
+                );
             }
         });
         // Sign up Button Click Listener

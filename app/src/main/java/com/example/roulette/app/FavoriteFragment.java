@@ -10,7 +10,8 @@ import android.view.ViewGroup;
  * Created by zach on 6/16/14.
  */
 public class FavoriteFragment extends Fragment {
-    public FavoriteFragment() {}
+    public FavoriteFragment() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
