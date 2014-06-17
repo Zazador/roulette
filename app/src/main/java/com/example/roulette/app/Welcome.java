@@ -4,7 +4,6 @@ package com.example.roulette.app;
  * Created by zach on 5/28/14.
  */
 
-import com.google.gson.Gson;
 import com.parse.ParseUser;
 
 import android.app.Activity;
@@ -85,6 +84,5 @@ public class Welcome extends Activity {
         // Display the returned results.
         System.out.println(rawData);
 
-        YelpSearchResult places = new Gson().fromJson(rawData, YelpSearchResult.class);
     }
 }

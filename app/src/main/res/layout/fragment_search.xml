@@ -4,18 +4,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/txtLabel"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/foodtype"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textSize="16dp"
-        android:text="Search View"/>
+        style="@style/AudioFileInfoOverlayText"
+        android:inputType="text"
+        android:hint="@string/food_type"
+        android:textColorHint="@color/black"/>
 
-    <ImageView android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/foodlocation"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txtLabel"
-        android:src="@drawable/ic_home"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"/>
+        style="@style/AudioFileInfoOverlayText"
+        android:layout_marginTop="50dp"
+        android:inputType="text"
+        android:hint="@string/food_location"
+        android:textColorHint="@color/black"/>
+
+    <Button
+        android:id="@+id/search"
+        android:background="#CCFFFFFF"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password"
+        android:layout_marginTop="250dp"
+        android:text="@string/SearchBtn"/>
 </RelativeLayout>

@@ -6,6 +6,8 @@ package com.example.roulette.app;
 
 import android.graphics.Region;
 
+import com.example.v2.Business;
+
 import java.util.List;
 
 public class YelpSearchResult {

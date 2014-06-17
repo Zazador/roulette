@@ -6,17 +6,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.EditText;
 
+import com.example.v2.Business;
+import com.google.gson.Gson;
 import org.scribe.builder.ServiceBuilder;
 import org.scribe.model.OAuthRequest;
 import org.scribe.model.Response;
 import org.scribe.model.Token;
 import org.scribe.model.Verb;
 import org.scribe.oauth.OAuthService;
-import org.w3c.dom.Text;
-
 import java.lang.ref.WeakReference;
+
 
 /**
  * Created by zach on 6/11/14.
@@ -26,19 +28,31 @@ public class SearchFragment extends Fragment {
     }
 
     private WeakReference<MyAsyncTask> asyncTaskWeakRef;
+    EditText foodTypeText;
+    EditText foodLocationText;
+    Button searchButton;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-        startNewAsyncTask();
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_search, container, false);
+        foodTypeText = (EditText) rootView.findViewById(R.id.foodtype);
+        foodLocationText = (EditText) rootView.findViewById(R.id.foodlocation);
+        searchButton = (Button) rootView.findViewById(R.id.search);
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startNewAsyncTask();
+            }
+        });
         return rootView;
     }
 
@@ -48,7 +62,7 @@ public class SearchFragment extends Fragment {
         task.execute();
     }
 
-    private static class MyAsyncTask extends AsyncTask<String, Void, Void> {
+    private static class MyAsyncTask extends AsyncTask<String, Void, String> {
         private WeakReference<SearchFragment> fragmentWeakReference;
         private Exception exception;
 
@@ -57,7 +71,7 @@ public class SearchFragment extends Fragment {
         }
 
         @Override
-        protected Void doInBackground(String... terms) {
+        protected String doInBackground(String... terms) {
             try {
                 // Execute a signed call to the Yelp service
                 OAuthService service = new ServiceBuilder()
@@ -70,14 +84,14 @@ public class SearchFragment extends Fragment {
                 // We want to perform a search.
                 OAuthRequest request = new OAuthRequest(Verb.GET, "http://api.yelp.com/v2/search");
                 // Based on a GPS coordinate latitude/longitude
-                request.addQuerystringParameter("ll", "30.267153, -97.743061");
+                request.addQuerystringParameter("ll", " 30.364715, -87.16164326");
                 // Looking for any restaurants
-                request.addQuerystringParameter("category", "restaurants");
+                request.addQuerystringParameter("category_filter", "restaurants");
                 service.signRequest(accessToken, request);
                 Response response = request.send();
                 String rawData = response.getBody();
                 System.out.println(rawData);
-                return null;
+                return rawData;
             } catch (Exception e) {
                 this.exception = e;
                 return null;
@@ -85,10 +99,27 @@ public class SearchFragment extends Fragment {
         }
 
         @Override
-        protected void onPostExecute(Void response) {
-            super.onPostExecute(response);
+        protected void onPostExecute(String rawData) {
+            super.onPostExecute(rawData);
             if (this.fragmentWeakReference.get() != null) {
-                //TODO: treat the result
+                try {
+                    YelpSearchResult places = new Gson().fromJson(rawData, YelpSearchResult.class);
+                    System.out.println("Your search found " + places.getTotal() + " results.");
+                    System.out.println("Yelp returned " + places.getBusinesses().size() + " businesses in this request.");
+                    System.out.println();
+
+                    for (Business biz : places.getBusinesses()) {
+                        System.out.println(biz.getName());
+                        for (String address : biz.getLocation().getAddress()) {
+                            System.out.println(" " + address);
+                        }
+                        System.out.println(" " + biz.getLocation().getCity());
+                        System.out.println(biz.getUrl());
+                        System.out.println();
+                    }
+                } catch (Exception e) {
+                    System.out.println("Error, could not parse returned data!");
+                }
             }
         }
     }

@@ -1,10 +1,10 @@
-package com.example.roulette.app;
+package com.example.v2;
 
 /**
  * Created by zach on 6/10/14.
  */
 
-import android.location.Location;
+
 
 import java.util.List;
 import java.util.Map;

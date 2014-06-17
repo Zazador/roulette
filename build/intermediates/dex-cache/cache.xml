@@ -8,11 +8,23 @@
         revision="19.1.0"
         sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
     <item
+        dex="/Users/zach/AndroidStudioProjects/roulette/app/build/intermediates/pre-dexed/debug/gson-2.2.4-javadoc-8270d68bbc2d670554a8d5c333c863c495640768.jar"
+        jar="/Users/zach/AndroidStudioProjects/roulette/app/libs/gson-2.2.4-javadoc.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="be47c2ee6e9ab0668874e4c6c4933c0637f473d8"/>
+    <item
         dex="/Users/zach/AndroidStudioProjects/roulette/app/build/intermediates/pre-dexed/debug/retrofit-1.6.0-295f49eea89a1df8279e56570ff303b8ff4f4bf7.jar"
         jar="/Users/zach/AndroidStudioProjects/roulette/app/libs/retrofit-1.6.0.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="39a9e4b49ded46aa1b67d492fe287c4cebcd815c"/>
+    <item
+        dex="/Users/zach/AndroidStudioProjects/roulette/app/build/intermediates/pre-dexed/debug/gson-2.2.4-sources-00b1d55899c481f7f54a795d56f257b413a9c24b.jar"
+        jar="/Users/zach/AndroidStudioProjects/roulette/app/libs/gson-2.2.4-sources.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="10ab84ba225b583b10713f57c04270c918ef162b"/>
     <item
         dex="/Users/zach/AndroidStudioProjects/roulette/app/build/intermediates/pre-dexed/debug/classes-52589ec09b9e7e1d32bd9574607bd8f38a70ac9a.jar"
         jar="/Users/zach/AndroidStudioProjects/roulette/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/classes.jar"
@@ -25,18 +37,6 @@
         jumboMode="false"
         revision="19.1.0"
         sha1="8a675f7e3312d8b28188ec653bbea6d435aaa7d1"/>
-    <item
-        dex="/Users/zach/AndroidStudioProjects/roulette/app/build/intermediates/pre-dexed/debug/gson-2.2.4-javadoc-8270d68bbc2d670554a8d5c333c863c495640768.jar"
-        jar="/Users/zach/AndroidStudioProjects/roulette/app/libs/gson-2.2.4-javadoc.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="be47c2ee6e9ab0668874e4c6c4933c0637f473d8"/>
-    <item
-        dex="/Users/zach/AndroidStudioProjects/roulette/app/build/intermediates/pre-dexed/debug/gson-2.2.4-sources-00b1d55899c481f7f54a795d56f257b413a9c24b.jar"
-        jar="/Users/zach/AndroidStudioProjects/roulette/app/libs/gson-2.2.4-sources.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="10ab84ba225b583b10713f57c04270c918ef162b"/>
     <item
         dex="/Users/zach/AndroidStudioProjects/roulette/app/build/intermediates/pre-dexed/debug/gson-2.2.4-5b56b36f8bf6de62d19242fbfdcd66abdceba405.jar"
         jar="/Users/zach/AndroidStudioProjects/roulette/app/libs/gson-2.2.4.jar"

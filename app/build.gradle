@@ -24,4 +24,5 @@ dependencies {
     compile files('libs/scribe-1.3.0.jar')
     compile files('libs/gson-2.2.4.jar')
     compile files('libs/retrofit-1.6.0.jar')
+    compile files('libs/json-simple-1.1.1.jar')
 }
