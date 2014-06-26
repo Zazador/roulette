@@ -11,14 +11,8 @@
         style="@style/AudioFileInfoOverlayText"
         android:inputType="text"
         android:hint="@string/food_type"
-        android:textColorHint="@color/black"/>
-
-    <Button
-        android:id="@+id/search"
-        android:background="#CCFFFFFF"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/password"
-        android:layout_marginTop="200dp"
-        android:text="@string/SearchBtn"/>
+        android:textColorHint="@color/black"
+        android:textSize="18dp"
+        android:gravity="center_horizontal"
+        android:imeOptions="actionSearch"/>
 </RelativeLayout>

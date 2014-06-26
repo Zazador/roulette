@@ -7,6 +7,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,11 +50,19 @@ public class SearchFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_search, container, false);
         foodTypeText = (EditText) rootView.findViewById(R.id.foodtype);
 
-        searchButton = (Button) rootView.findViewById(R.id.search);
-        searchButton.setOnClickListener(new View.OnClickListener() {
+        foodTypeText.setOnKeyListener(new View.OnKeyListener() {
             @Override
-            public void onClick(View view) {
-                startNewAsyncTask();
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+                if (keyEvent.getAction() == KeyEvent.ACTION_DOWN) {
+                    switch (i) {
+                        case KeyEvent.KEYCODE_ENTER:
+                            startNewAsyncTask();
+                            return true;
+                        default:
+                            break;
+                    }
+                }
+                return false;
             }
         });
         return rootView;
