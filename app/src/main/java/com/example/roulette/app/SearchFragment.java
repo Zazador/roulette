@@ -1,6 +1,7 @@
 package com.example.roulette.app;
 
 import android.app.Fragment;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.location.Criteria;
 import android.location.Location;
@@ -77,9 +78,16 @@ public class SearchFragment extends Fragment {
     private class MyAsyncTask extends AsyncTask<String, Void, String> {
         private WeakReference<SearchFragment> fragmentWeakReference;
         private Exception exception;
+        private ProgressDialog dialog;
 
         private MyAsyncTask(SearchFragment searchFrag) {
             this.fragmentWeakReference = new WeakReference<SearchFragment>(searchFrag);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog = ProgressDialog.show(getActivity(), "Loading...", "Please wait...", true);
         }
 
         @Override
@@ -127,6 +135,7 @@ public class SearchFragment extends Fragment {
             super.onPostExecute(rawData);
             if (this.fragmentWeakReference.get() != null) {
                 try {
+                    dialog.dismiss();
                     YelpSearchResult places = new Gson().fromJson(rawData, YelpSearchResult.class);
                     System.out.println("Your search found " + places.getTotal() + " results.");
                     System.out.println("Yelp returned " + places.getBusinesses().size() + " businesses in this request.");
