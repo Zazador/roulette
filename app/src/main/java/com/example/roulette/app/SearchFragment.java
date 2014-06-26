@@ -4,7 +4,6 @@ import android.app.Fragment;
 import android.content.Context;
 import android.location.Criteria;
 import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -49,7 +48,7 @@ public class SearchFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_search, container, false);
         foodTypeText = (EditText) rootView.findViewById(R.id.foodtype);
-        foodLocationText = (EditText) rootView.findViewById(R.id.foodlocation);
+
         searchButton = (Button) rootView.findViewById(R.id.search);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +87,7 @@ public class SearchFragment extends Fragment {
                 System.out.println(String.valueOf(currentLat) + ", " + String.valueOf(currentLong));
 
                 String foodType = foodTypeText.getText().toString();
-                String loc = foodLocationText.getText().toString();
+
                 // Execute a signed call to the Yelp service
                 OAuthService service = new ServiceBuilder()
                         .provider(YelpV2API.class)
@@ -106,7 +105,7 @@ public class SearchFragment extends Fragment {
                 service.signRequest(accessToken, request);
                 Response response = request.send();
                 String rawData = response.getBody();
-                System.out.println(rawData);
+                System.out.println(rawData + " LOOK AT ME");
                 return rawData;
             } catch (Exception e) {
                 this.exception = e;
