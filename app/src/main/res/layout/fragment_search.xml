@@ -13,16 +13,6 @@
         android:hint="@string/food_type"
         android:textColorHint="@color/black"/>
 
-    <EditText
-        android:id="@+id/foodlocation"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        style="@style/AudioFileInfoOverlayText"
-        android:layout_marginTop="50dp"
-        android:inputType="text"
-        android:hint="@string/food_location"
-        android:textColorHint="@color/black"/>
-
     <Button
         android:id="@+id/search"
         android:background="#CCFFFFFF"

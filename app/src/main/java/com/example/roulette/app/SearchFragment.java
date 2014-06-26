@@ -1,6 +1,11 @@
 package com.example.roulette.app;
 
 import android.app.Fragment;
+import android.content.Context;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -72,6 +77,16 @@ public class SearchFragment extends Fragment {
         @Override
         protected String doInBackground(String... terms) {
             try {
+                LocationManager locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+                String mlocProvider;
+                Criteria hdCrit = new Criteria();
+                hdCrit.setAccuracy(Criteria.ACCURACY_COARSE);
+                mlocProvider = locationManager.getBestProvider(hdCrit, true);
+                Location currentLoc = locationManager.getLastKnownLocation(mlocProvider);
+                double currentLat = currentLoc.getLatitude();
+                double currentLong = currentLoc.getLongitude();
+                System.out.println(String.valueOf(currentLat) + ", " + String.valueOf(currentLong));
+
                 String foodType = foodTypeText.getText().toString();
                 String loc = foodLocationText.getText().toString();
                 // Execute a signed call to the Yelp service
@@ -85,7 +100,7 @@ public class SearchFragment extends Fragment {
                 // We want to perform a search.
                 OAuthRequest request = new OAuthRequest(Verb.GET, "http://api.yelp.com/v2/search");
                 // Based on a GPS coordinate latitude/longitude
-                request.addQuerystringParameter("location", loc);
+                request.addQuerystringParameter("ll", String.valueOf(currentLat) + ", " + String.valueOf(currentLong));
                 // Looking for any restaurants
                 request.addQuerystringParameter("term", foodType);
                 service.signRequest(accessToken, request);
